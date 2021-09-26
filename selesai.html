@@ -1,8 +1,36 @@
-<?php
-//memasukkan header
-include 'template/header.php'; 
-
-?>
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>LSP</title>
+  <!-- my style -->
+  <link rel="stylesheet" href="./css/style.css">
+    <!-- daterange picker -->
+  <link rel="stylesheet" href="vendor/adminlte/plugins/daterangepicker/daterangepicker.css">
+  <!-- Tell the browser to be responsive to screen width -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="vendor/adminlte/plugins/fontawesome-free/css/all.min.css">
+  <!-- Ionicons -->
+  <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+  <!-- Tempusdominus Bbootstrap 4 -->
+  <link rel="stylesheet" href="vendor/adminlte/plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css">
+  <!-- iCheck -->
+  <link rel="stylesheet" href="vendor/adminlte/plugins/icheck-bootstrap/icheck-bootstrap.min.css">
+  <!-- JQVMap -->
+  <link rel="stylesheet" href="vendor/adminlte/plugins/jqvmap/jqvmap.min.css">
+  <!-- Theme style -->
+  <link rel="stylesheet" href="vendor/adminlte/dist/css/adminlte.min.css">
+  <!-- overlayScrollbars -->
+  <link rel="stylesheet" href="vendor/adminlte/plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
+  <!-- Daterange picker -->
+  <link rel="stylesheet" href="vendor/adminlte/plugins/daterangepicker/daterangepicker.css">
+  <!-- summernote -->
+  <link rel="stylesheet" href="vendor/adminlte/plugins/summernote/summernote-bs4.css">
+  <!-- Google Font: Source Sans Pro -->
+  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+</head>
 <body class="hold-transition sidebar-mini layout-fixed">
 <div class="wrapper">
 <nav class="navbar navbar-expand navbar-dark bg-dark" style="background-color:#181D33 !important;">
@@ -34,7 +62,7 @@ include 'template/header.php';
   <div class="collapse navbar-collapse" id="navbarNavDropdown">
     <ul class="navbar-nav ml-auto responsive">
       <li class="nav-item active">
-        <a class="nav-link" href="index.php">HOME <span class="sr-only">(current)</span></a>
+        <a class="nav-link" href="#">HOME <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -58,18 +86,17 @@ include 'template/header.php';
           INFORMASI
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-          <a class="dropdown-item" href="artikel.php">ARTIKEL</a>
+          <a class="dropdown-item" href="#">ARTIKEL</a>
         </div>
       </li>
       <li class="nav-item active">
-        <a class="nav-link" href="kontak.php">CONTACT</a>
+        <a class="nav-link" href="#">CONTACT</a>
       </li>
       <?php if(isset($_SESSION['username'])){
         echo '<li class="nav-item active">
         <a class="nav-link" href="logout.php">LOGOUT</a>
       </li>';
-      }?>
-      
+      } ?>
       <!--  -->
     </ul>
   </div>
@@ -79,76 +106,18 @@ include 'template/header.php';
 
 
 <!-- daftar skema -->
-  <div class="container py-4">
-    <div class="row mb-4 pt-4">
-      <div class="col text-center">
-        <h2>Daftar Skema Sertifikasi</h2>
-      </div>
-    </div>
-    <div class="row mb-4">
-    <div class="col-sm-4">
-      <div class="card">
-  <img class="card-img-top" src="img/skema.jpg" height="248px">
-  <div class="card-body">
-    <h5 class="card-title"><b>Operator Komputer Muda</b></h5>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-    <a href="skema.php" class="btn btn-primary">Lihat Skema</a>
-  </div>
-</div>
-    </div>
-    <div class="col-sm-4">
-      <div class="card">
-  <img class="card-img-top" src="img/skema.jpg" height="248px">
-  <div class="card-body">
-    <h5 class="card-title"><b>Digital Marketing</b></h5>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-    <a href="skema.php" class="btn btn-primary">Lihat Skema</a>
-  </div>
-</div>
-    </div>
-    <div class="col-sm-4">
-      <div class="card">
-  <img class="card-img-top" src="img/skema.jpg" height="248px">
-  <div class="card-body">
-    <h5 class="card-title"><b> Desainer Multimedia Muda</b></h5>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-    <a href="skema.php" class="btn btn-primary">Lihat Skema</a>
-  </div>
-</div>
-    </div>
-    </div>
-    <div class="row mb-4">
-    <div class="col-sm-4">
-      <div class="card">
-  <img class="card-img-top" src="img/sertifikasi.jpg" height="248px">
-  <div class="card-body">
-    <h5 class="card-title"><b>Junior Web Developer</b></h5>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-    <a href="skema.php" class="btn btn-primary">Lihat Skema</a>
-  </div>
-</div>
-    </div>
-    <div class="col-sm-4">
-      <div class="card">
-  <img class="card-img-top" src="img/sertifikasi.jpg" height="248px">
-  <div class="card-body">
-    <h5 class="card-title"><b>Junior Data Scientist</b></h5>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-    <a href="skema.php" class="btn btn-primary">Lihat Skema</a>
-  </div>
-</div>
-    </div>
-    <div class="col-sm-4">
-      <div class="card">
-  <img class="card-img-top" src="img/sertifikasi.jpg" height="248px">
-  <div class="card-body">
-    <h5 class="card-title"><b> Big Data</b></h5>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-    <a href="skema.php" class="btn btn-primary">Lihat Skema</a>
-  </div>
-</div>
-    </div>
-    </div>
+<div class="container py-4">
+    <!-- alert -->
+    <?php 
+    if (isset($_SESSION['username'])){
+        echo '<div class="alert alert-info alert-dismissible">
+                      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                      <h5><i class="fa fa-envelope"></i> Terima Kasih Telah Mendaftar ' .  ucfirst($_SESSION['username']) .'</h5>
+                      Pengumuman Akan Kami Kirim Melalui Email
+                    </div>';
+        }
+    ?>
+    <!-- akhir alert -->
   </div>
 <!-- akhir daftar skema -->
 
@@ -245,6 +214,116 @@ include 'template/header.php';
 
 </div>
 <!-- ./wrapper -->
-<?php include 'template/footer.php'; ?>
+
+<script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY&callback=myMap"></script>
+<!-- jQuery -->
+<script src="vendor/adminlte/plugins/jquery/jquery.min.js"></script>
+<!-- jQuery UI 1.11.4 -->
+<script src="plugins/jquery-ui/jquery-ui.min.js"></script>
+<!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
+<script>
+  $.widget.bridge('uibutton', $.ui.button)
+</script>
+<!-- Bootstrap 4 -->
+<script src="vendor/adminlte/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<!-- ChartJS -->
+<script src="vendor/adminlte/plugins/chart.js/Chart.min.js"></script>
+<!-- Sparkline -->
+<script src="vendor/adminlte/plugins/sparklines/sparkline.js"></script>
+<!-- JQVMap -->
+<script src="vendor/adminlte/plugins/jqvmap/jquery.vmap.min.js"></script>
+<script src="vendor/adminlte/plugins/jqvmap/maps/jquery.vmap.usa.js"></script>
+<!-- jQuery Knob Chart -->
+<script src="vendor/adminlte/plugins/jquery-knob/jquery.knob.min.js"></script>
+<!-- daterangepicker -->
+<script src="vendor/adminlte/plugins/moment/moment.min.js"></script>
+<script src="vendor/adminlte/plugins/daterangepicker/daterangepicker.js"></script>
+<!-- Tempusdominus Bootstrap 4 -->
+<script src="vendor/adminlte/plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js"></script>
+<!-- Summernote -->
+<script src="vendor/adminlte/plugins/summernote/summernote-bs4.min.js"></script>
+<!-- overlayScrollbars -->
+<script src="vendor/adminlte/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
+<!-- AdminLTE App -->
+<script src="vendor/adminlte/dist/js/adminlte.js"></script>
+<!-- AdminLTE dashboard demo (This is only for demo purposes) -->
+<script src="vendor/adminlte/dist/js/pages/dashboard.js"></script>
+<!-- AdminLTE for demo purposes -->
+<script src="vendor/adminlte/dist/js/demo.js"></script>
+<!-- date-range-picker -->
+<script src="vendor/adminlte/plugins/daterangepicker/daterangepicker.js"></script>
+<script>
+  $(function () {
+    //Initialize Select2 Elements
+    $('.select2').select2()
+
+    //Initialize Select2 Elements
+    $('.select2bs4').select2({
+      theme: 'bootstrap4'
+    })
+
+    //Datemask dd/mm/yyyy
+    $('#datemask').inputmask('dd/mm/yyyy', { 'placeholder': 'dd/mm/yyyy' })
+    //Datemask2 mm/dd/yyyy
+    $('#datemask2').inputmask('mm/dd/yyyy', { 'placeholder': 'mm/dd/yyyy' })
+    //Money Euro
+    $('[data-mask]').inputmask()
+
+    //Date range picker
+    $('#reservationdate').datetimepicker({
+        format: 'L'
+    });
+    //Date range picker
+    $('#reservation').daterangepicker()
+    //Date range picker with time picker
+    $('#reservationtime').daterangepicker({
+      timePicker: true,
+      timePickerIncrement: 30,
+      locale: {
+        format: 'MM/DD/YYYY hh:mm A'
+      }
+    })
+    //Date range as a button
+    $('#daterange-btn').daterangepicker(
+      {
+        ranges   : {
+          'Today'       : [moment(), moment()],
+          'Yesterday'   : [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
+          'Last 7 Days' : [moment().subtract(6, 'days'), moment()],
+          'Last 30 Days': [moment().subtract(29, 'days'), moment()],
+          'This Month'  : [moment().startOf('month'), moment().endOf('month')],
+          'Last Month'  : [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')]
+        },
+        startDate: moment().subtract(29, 'days'),
+        endDate  : moment()
+      },
+      function (start, end) {
+        $('#reportrange span').html(start.format('MMMM D, YYYY') + ' - ' + end.format('MMMM D, YYYY'))
+      }
+    )
+
+    //Timepicker
+    $('#timepicker').datetimepicker({
+      format: 'LT'
+    })
+    
+    //Bootstrap Duallistbox
+    $('.duallistbox').bootstrapDualListbox()
+
+    //Colorpicker
+    $('.my-colorpicker1').colorpicker()
+    //color picker with addon
+    $('.my-colorpicker2').colorpicker()
+
+    $('.my-colorpicker2').on('colorpickerChange', function(event) {
+      $('.my-colorpicker2 .fa-square').css('color', event.color.toString());
+    });
+
+    $("input[data-bootstrap-switch]").each(function(){
+      $(this).bootstrapSwitch('state', $(this).prop('checked'));
+    });
+
+  });
+</script>
 </body>
 </html>

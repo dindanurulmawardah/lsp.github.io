@@ -1,9 +1,36 @@
-<?php
-
-// session
-session_start();
-
-include 'template/header.php'; ?>
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>LSP</title>
+  <!-- my style -->
+  <link rel="stylesheet" href="./css/style.css">
+    <!-- daterange picker -->
+  <link rel="stylesheet" href="vendor/adminlte/plugins/daterangepicker/daterangepicker.css">
+  <!-- Tell the browser to be responsive to screen width -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="vendor/adminlte/plugins/fontawesome-free/css/all.min.css">
+  <!-- Ionicons -->
+  <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+  <!-- Tempusdominus Bbootstrap 4 -->
+  <link rel="stylesheet" href="vendor/adminlte/plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css">
+  <!-- iCheck -->
+  <link rel="stylesheet" href="vendor/adminlte/plugins/icheck-bootstrap/icheck-bootstrap.min.css">
+  <!-- JQVMap -->
+  <link rel="stylesheet" href="vendor/adminlte/plugins/jqvmap/jqvmap.min.css">
+  <!-- Theme style -->
+  <link rel="stylesheet" href="vendor/adminlte/dist/css/adminlte.min.css">
+  <!-- overlayScrollbars -->
+  <link rel="stylesheet" href="vendor/adminlte/plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
+  <!-- Daterange picker -->
+  <link rel="stylesheet" href="vendor/adminlte/plugins/daterangepicker/daterangepicker.css">
+  <!-- summernote -->
+  <link rel="stylesheet" href="vendor/adminlte/plugins/summernote/summernote-bs4.css">
+  <!-- Google Font: Source Sans Pro -->
+  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+</head>
 <body class="hold-transition sidebar-mini layout-fixed">
 <div class="wrapper">
 <nav class="navbar navbar-expand navbar-dark bg-dark" style="background-color:#181D33 !important;">
@@ -17,12 +44,13 @@ include 'template/header.php'; ?>
         <a class="nav-item nav-link lsp-bnsp-link" href="#" title="BNSP">BNSP-LSP-1565-ID</a>
       </div>
       <div class="navbar-nav ml-auto responsive">
-        <a class="nav-item nav-link" href="login.php">Login</a>
+        <a class="nav-item nav-link" href="pilih-login.php">Login</a>
         <a class="nav-item nav-link" href="registrasi.php">Registrasi</a>
       </div>
             </div>
           </div>
           </nav>
+
 <!-- navbar -->
 <nav class="navbar navbar-expand-lg sticky-top navbar-light bg-light">
   <div class="container">
@@ -34,7 +62,7 @@ include 'template/header.php'; ?>
   <div class="collapse navbar-collapse" id="navbarNavDropdown">
     <ul class="navbar-nav ml-auto responsive">
       <li class="nav-item active">
-        <a class="nav-link" href="#">HOME <span class="sr-only">(current)</span></a>
+        <a class="nav-link" href="index.php">HOME <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -64,136 +92,19 @@ include 'template/header.php'; ?>
       <li class="nav-item active">
         <a class="nav-link" href="kontak.php">CONTACT</a>
       </li>
+      <?php if(isset($_SESSION['username'])){
+        echo '<li class="nav-item active">
+        <a class="nav-link" href="logout.php">LOGOUT</a>
+      </li>';
+      }?>
+      
+      <!--  -->
     </ul>
   </div>
   </div>
 </nav>
 <!-- akhir navbar -->
 
-<!-- jumbotron -->
-<div class="jumbotron jumbotron-fluid">
-    <div class="container">
-      <h1 class="display-4"><span>LSP</span><br><span>L</span>embaga <span>S</span>ertifikasi <span>P</span>rofesi</h1>
-    </div>
-  </div>
-  <!-- akhir jumbotron -->
-
-  <!-- info-panel -->
-  <div class="container">
-    <div class="row justify-content-center">
-      <div class="col-10 info-panel">
-        <div class="row">
-          <div class="col-lg">
-            <img src="img/employee.png" alt="" class="float-left">
-            <div class="form-group">
-              <h4>Skema</h4>
-              <p>Pilih skema pelatihannya</p>
-                <select class="form-control">
-                  <option>Pilih Skema Sertifikasi</option>
-                  <option>option 2</option>
-                  <option>option 3</option>
-                  <option>option 4</option>
-                  <option>option 5</option>
-                </select>
-            </div>
-          </div>
-          <div class="col-lg">
-            <img src="img/pin.jpg" alt="" class="float-left">
-            <h4>Provinsi</h4>
-            <p>Pilih lokasi anda</p>
-            <select class="form-control">
-                  <option>Pilih Skema Sertifikasi</option>
-                  <option>option 2</option>
-                  <option>option 3</option>
-                  <option>option 4</option>
-                  <option>option 5</option>
-                </select>
-          </div>
-          <div class="col-lg">
-            <img src="img/time.png" alt="" class="float-left">
-            <h4>Jadwal</h4>
-            <p>Pilih jadwalnya</p>
-            <div class="form-group">
-                    <div class="input-group date" id="reservationdate" data-target-input="nearest">
-                        <input type="text" class="form-control datetimepicker-input" data-target="#reservationdate"/>
-                        <div class="input-group-append" data-target="#reservationdate" data-toggle="datetimepicker">
-                            <div class="input-group-text"><i class="fa fa-calendar"></i></div>
-                        </div>
-                    </div>
-                </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-<!-- akhir info panel -->
-
-<!-- sertifikasi -->
-  <div class="container">
-    <div class="row d-flex justify-content-center mb-2 mt-4 pt-3">
-      <div class="col-md-8 pt-3 mt-4 mb-4">
-        <h1 class="text-center mb-4">
-          LEMBAGA SERTIFIKASI PROFESI
-        </h1>
-        <h4 class="text-center font-weight-bold mb-3">
-          Mengapa Kami?
-        </h4>
-        <div class="text-center mb-4">
-          
-					Karena komitmen kami untuk meningkatkan kebertrimaan Sertifikat
-					Kompetensi oleh industri baik di tingkat nasional maupun
-					internasional.
-				
-        </div>
-      </div>
-    </div>
-
-    <div class="row">
-      <div class="col-lg-4 text-center py-1">
-        <div>
-          <i class="fas fa-scroll"></i>
-        </div>
-        <div class="pl-3 pt-3">
-          <h5 class="navbar-nav">
-            <a href="" class="nav-link text-dark font-weight-bold">36 skema sertifikasi</a>
-          </h5>
-          <p>
-            Skema / Profesi / Jabatan / Pekerjaan di bidang-bidang strategis sektor Teknologi Informasi dan Komunikasi.
-          </p>
-          <a href="" class="nav-link text-primary font-weight-bold">Jadwal sertifikasi</a>
-        </div>
-      </div>
-      <div class="col-lg-4 text-center py-1">
-        <div>
-          <i class="fas fa-drafting-compass"></i>
-        </div>
-        <div class="pl-3 pt-3">
-          <h5 class="navbar-nav">
-            <a href="" class="nav-link text-dark font-weight-bold">300++ Link DUDI</a>
-          </h5>
-          <p>
-            Skema / Profesi / Jabatan / Pekerjaan di bidang-bidang strategis sektor Teknologi Informasi dan Komunikasi.
-          </p>
-          <a href="" class="nav-link text-primary font-weight-bold">Jadwal sertifikasi</a>
-        </div>
-      </div>
-      <div class="col-lg-4 text-center py-1">
-        <div>
-          <i class="fas fa-child"></i>
-        </div>
-        <div class="pl-3 pt-3">
-          <h5 class="navbar-nav">
-            <a href="" class="nav-link text-dark font-weight-bold">1000++ SDM Tersedia</a>
-          </h5>
-          <p>
-            Skema / Profesi / Jabatan / Pekerjaan di bidang-bidang strategis sektor Teknologi Informasi dan Komunikasi.
-          </p>
-          <a href="" class="nav-link text-primary font-weight-bold">Jadwal sertifikasi</a>
-        </div>
-      </div>
-    </div>
-  </div>
-<!-- akhir sertifikasi -->
 
 <!-- daftar skema -->
   <div class="container py-4">
@@ -201,6 +112,38 @@ include 'template/header.php'; ?>
       <div class="col text-center">
         <h2>Daftar Skema Sertifikasi</h2>
       </div>
+    </div>
+    <div class="row mb-4">
+    <div class="col-sm-4">
+      <div class="card">
+  <img class="card-img-top" src="img/skema.jpg" height="248px">
+  <div class="card-body">
+    <h5 class="card-title"><b>Operator Komputer Muda</b></h5>
+    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+    <a href="skema.php" class="btn btn-primary">Lihat Skema</a>
+  </div>
+</div>
+    </div>
+    <div class="col-sm-4">
+      <div class="card">
+  <img class="card-img-top" src="img/skema.jpg" height="248px">
+  <div class="card-body">
+    <h5 class="card-title"><b>Digital Marketing</b></h5>
+    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+    <a href="skema.php" class="btn btn-primary">Lihat Skema</a>
+  </div>
+</div>
+    </div>
+    <div class="col-sm-4">
+      <div class="card">
+  <img class="card-img-top" src="img/skema.jpg" height="248px">
+  <div class="card-body">
+    <h5 class="card-title"><b> Desainer Multimedia Muda</b></h5>
+    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+    <a href="skema.php" class="btn btn-primary">Lihat Skema</a>
+  </div>
+</div>
+    </div>
     </div>
     <div class="row mb-4">
     <div class="col-sm-4">
@@ -236,67 +179,6 @@ include 'template/header.php'; ?>
     </div>
   </div>
 <!-- akhir daftar skema -->
-  
-
-  <!-- bagian artikel -->
-  <div class="container py-4">
-    <div class="row mb-4 pt-4">
-      <div class="col text-center">
-        <h2>Artikel</h2>
-      </div>
-    </div>
-    <div class="row mb-4">
-    <div class="col-sm-4">
-  <div class="card-deck">
-  <div class="card">
-    <img class="card-img-top" src="img/artikel.jpg" alt="Card image cap">
-    <div class="card-body">
-      <h5 class="card-title"><b>Sertifikasi Junior Web Developer</b></h5>
-      <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-    </div>
-    <div class="card-footer">
-      <small class="text-muted">Last updated 3 mins ago</small>
-    </div>
-  </div>
-
-  
-</div>
-    </div>
-    <div class="col-sm-4">
-       <div class="card-deck">
-  <div class="card">
-    <img class="card-img-top" src="img/artikel.jpg" alt="Card image cap">
-    <div class="card-body">
-      <h5 class="card-title"><b>Sertifikasi Multimedia Desainer</b></h5>
-      <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-    </div>
-    <div class="card-footer">
-      <small class="text-muted">Last updated 3 mins ago</small>
-    </div>
-  </div>
-
-  
-</div>
-    </div>
-    <div class="col-sm-4">
-      <div class="card-deck">
-  <div class="card">
-    <img class="card-img-top" src="img/artikel.jpg" alt="Card image cap">
-    <div class="card-body">
-      <h5 class="card-title"><b>Sertifikasi Digital Marketing</b></h5>
-      <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-    </div>
-    <div class="card-footer">
-      <small class="text-muted">Last updated 3 mins ago</small>
-    </div>
-  </div>
-
-  
-</div>
-    </div>
-    </div>
-  </div>
-<!-- akhir bagian artikel -->
 
 <!-- footer -->
 <footer class="bg-light">
@@ -390,7 +272,116 @@ include 'template/header.php'; ?>
 <!-- akhir footer -->
 
 </div>
-<!-- ./wrapper -->
-<?php include 'template/footer.php'; ?>
+
+<script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY&callback=myMap"></script>
+<!-- jQuery -->
+<script src="vendor/adminlte/plugins/jquery/jquery.min.js"></script>
+<!-- jQuery UI 1.11.4 -->
+<script src="plugins/jquery-ui/jquery-ui.min.js"></script>
+<!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
+<script>
+  $.widget.bridge('uibutton', $.ui.button)
+</script>
+<!-- Bootstrap 4 -->
+<script src="vendor/adminlte/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<!-- ChartJS -->
+<script src="vendor/adminlte/plugins/chart.js/Chart.min.js"></script>
+<!-- Sparkline -->
+<script src="vendor/adminlte/plugins/sparklines/sparkline.js"></script>
+<!-- JQVMap -->
+<script src="vendor/adminlte/plugins/jqvmap/jquery.vmap.min.js"></script>
+<script src="vendor/adminlte/plugins/jqvmap/maps/jquery.vmap.usa.js"></script>
+<!-- jQuery Knob Chart -->
+<script src="vendor/adminlte/plugins/jquery-knob/jquery.knob.min.js"></script>
+<!-- daterangepicker -->
+<script src="vendor/adminlte/plugins/moment/moment.min.js"></script>
+<script src="vendor/adminlte/plugins/daterangepicker/daterangepicker.js"></script>
+<!-- Tempusdominus Bootstrap 4 -->
+<script src="vendor/adminlte/plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js"></script>
+<!-- Summernote -->
+<script src="vendor/adminlte/plugins/summernote/summernote-bs4.min.js"></script>
+<!-- overlayScrollbars -->
+<script src="vendor/adminlte/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
+<!-- AdminLTE App -->
+<script src="vendor/adminlte/dist/js/adminlte.js"></script>
+<!-- AdminLTE dashboard demo (This is only for demo purposes) -->
+<script src="vendor/adminlte/dist/js/pages/dashboard.js"></script>
+<!-- AdminLTE for demo purposes -->
+<script src="vendor/adminlte/dist/js/demo.js"></script>
+<!-- date-range-picker -->
+<script src="vendor/adminlte/plugins/daterangepicker/daterangepicker.js"></script>
+<script>
+  $(function () {
+    //Initialize Select2 Elements
+    $('.select2').select2()
+
+    //Initialize Select2 Elements
+    $('.select2bs4').select2({
+      theme: 'bootstrap4'
+    })
+
+    //Datemask dd/mm/yyyy
+    $('#datemask').inputmask('dd/mm/yyyy', { 'placeholder': 'dd/mm/yyyy' })
+    //Datemask2 mm/dd/yyyy
+    $('#datemask2').inputmask('mm/dd/yyyy', { 'placeholder': 'mm/dd/yyyy' })
+    //Money Euro
+    $('[data-mask]').inputmask()
+
+    //Date range picker
+    $('#reservationdate').datetimepicker({
+        format: 'L'
+    });
+    //Date range picker
+    $('#reservation').daterangepicker()
+    //Date range picker with time picker
+    $('#reservationtime').daterangepicker({
+      timePicker: true,
+      timePickerIncrement: 30,
+      locale: {
+        format: 'MM/DD/YYYY hh:mm A'
+      }
+    })
+    //Date range as a button
+    $('#daterange-btn').daterangepicker(
+      {
+        ranges   : {
+          'Today'       : [moment(), moment()],
+          'Yesterday'   : [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
+          'Last 7 Days' : [moment().subtract(6, 'days'), moment()],
+          'Last 30 Days': [moment().subtract(29, 'days'), moment()],
+          'This Month'  : [moment().startOf('month'), moment().endOf('month')],
+          'Last Month'  : [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')]
+        },
+        startDate: moment().subtract(29, 'days'),
+        endDate  : moment()
+      },
+      function (start, end) {
+        $('#reportrange span').html(start.format('MMMM D, YYYY') + ' - ' + end.format('MMMM D, YYYY'))
+      }
+    )
+
+    //Timepicker
+    $('#timepicker').datetimepicker({
+      format: 'LT'
+    })
+    
+    //Bootstrap Duallistbox
+    $('.duallistbox').bootstrapDualListbox()
+
+    //Colorpicker
+    $('.my-colorpicker1').colorpicker()
+    //color picker with addon
+    $('.my-colorpicker2').colorpicker()
+
+    $('.my-colorpicker2').on('colorpickerChange', function(event) {
+      $('.my-colorpicker2 .fa-square').css('color', event.color.toString());
+    });
+
+    $("input[data-bootstrap-switch]").each(function(){
+      $(this).bootstrapSwitch('state', $(this).prop('checked'));
+    });
+
+  });
+</script>
 </body>
 </html>
